@@ -136,8 +136,13 @@ function repeatString(value, count) {
  *   'I like legends', 'end' => 'I like legs',
  *   'ABABAB','BA' => 'ABAB'
  */
-function removeFirstOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
+function removeFirstOccurrences(str, value) {
+  const strToArr = str.split('');
+  const howManyDelete = value.length;
+  const spliceStart = str.indexOf(value);
+  strToArr.splice(spliceStart, howManyDelete);
+  const result = strToArr.join('');
+  return result;
 }
 
 /**
@@ -151,8 +156,10 @@ function removeFirstOccurrences(/* str, value */) {
  *   '<span>' => 'span'
  *   '<a>' => 'a'
  */
-function unbracketTag(/* str */) {
-  throw new Error('Not implemented');
+function unbracketTag(str) {
+  const sliceStop = str.length - 1;
+  const resultTag = str.slice(1, sliceStop);
+  return resultTag;
 }
 
 /**
@@ -165,8 +172,9 @@ function unbracketTag(/* str */) {
  *   'Thunderstruck' => 'THUNDERSTRUCK'
  *  'abcdefghijklmnopqrstuvwxyz' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
  */
-function convertToUpperCase(/* str */) {
-  throw new Error('Not implemented');
+function convertToUpperCase(str) {
+  const upperCasedStr = str.toUpperCase();
+  return upperCasedStr;
 }
 
 /**
@@ -184,8 +192,9 @@ function convertToUpperCase(/* str */) {
  *   ],
  *   'info@gmail.com' => ['info@gmail.com']
  */
-function extractEmails(/* str */) {
-  throw new Error('Not implemented');
+function extractEmails(str) {
+  const strToArr = str.split(';');
+  return strToArr;
 }
 
 /**
