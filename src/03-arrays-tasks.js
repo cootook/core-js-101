@@ -344,8 +344,14 @@ function get3TopItems(arr) {
  *   [ null, 1, 'elephant' ] => 1
  *   [ 1, '2' ] => 1
  */
-function getPositivesCount(/* arr */) {
-  throw new Error('Not implemented');
+function getPositivesCount(arr) {
+  const temp = arr.reduce((acc, a) => {
+    let tempAcc = acc;
+    const isNumber = typeof a === 'number';
+    if (isNumber && (a > 0)) tempAcc += 1;
+    return tempAcc;
+  }, 0);
+  return temp;
 }
 
 /**
@@ -377,8 +383,9 @@ function sortDigitNamesByNumericOrder(/* arr */) {
  *   [ -1, 1, -1, 1 ]      => 0
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
-function getItemsSum(/* arr */) {
-  throw new Error('Not implemented');
+function getItemsSum(arr) {
+  const temp = arr.reduce((acc, a) => acc + a, 0);
+  return temp;
 }
 
 /**
