@@ -400,8 +400,16 @@ function getItemsSum(arr) {
  *  [ -1, 'false', null, 0 ] => 2
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
-function getFalsyValuesCount(/* arr */) {
-  throw new Error('Not implemented');
+function getFalsyValuesCount(arr) {
+  // throw new Error('Not implemented');
+  const falsyArr = [null, undefined, NaN, false, 0, ''];
+  const newArr = arr.reduce((acc, x) => {
+    let temp = acc;
+    const ind = falsyArr.includes(x);
+    if (ind) temp += 1;
+    return temp;
+  }, 0);
+  return newArr;
 }
 
 /**
