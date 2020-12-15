@@ -400,8 +400,16 @@ function getItemsSum(arr) {
  *  [ -1, 'false', null, 0 ] => 2
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
-function getFalsyValuesCount(/* arr */) {
-  throw new Error('Not implemented');
+function getFalsyValuesCount(arr) {
+  // throw new Error('Not implemented');
+  const falsyArr = [null, undefined, NaN, false, 0, ''];
+  const newArr = arr.reduce((acc, x) => {
+    let temp = acc;
+    const ind = falsyArr.includes(x);
+    if (ind) temp += 1;
+    return temp;
+  }, 0);
+  return newArr;
 }
 
 /**
@@ -418,8 +426,12 @@ function getFalsyValuesCount(/* arr */) {
  *    [ null, undefined, null ], null => 2
  *    [ true, 0, 1, 'true' ], true => 1
  */
-function findAllOccurences(/* arr, item */) {
-  throw new Error('Not implemented');
+function findAllOccurences(arr, item) {
+  const newArr = arr.reduce((acc, x) => {
+    const temp = x === item ? (acc + 1) : acc;
+    return temp;
+  }, 0);
+  return newArr;
 }
 
 /**
@@ -433,8 +445,9 @@ function findAllOccurences(/* arr, item */) {
  *    [1, 2, 3, 4, 5]                   => '1,2,3,4,5'
  *    ['rock', 'paper', 'scissors']     => 'rock,paper,scissors'
  */
-function toStringList(/* arr */) {
-  throw new Error('Not implemented');
+function toStringList(arr) {
+  const str = arr.map((x) => x.toString()).join(',');
+  return str;
 }
 
 /**
@@ -485,8 +498,17 @@ function sortCitiesArray(/* arr */) {
  *           [0,0,0,1,0],
  *           [0,0,0,0,1]]
  */
-function getIdentityMatrix(/* n */) {
-  throw new Error('Not implemented');
+function getIdentityMatrix(n = 0) {
+  if (n < 1) return [];
+  const arr = new Array(n);
+  arr.fill(0);
+  const matrix = arr.map((x, i) => {
+    const tempArr = new Array(n);
+    tempArr.fill(0);
+    tempArr[i] = 1;
+    return tempArr;
+  });
+  return matrix;
 }
 
 /**
